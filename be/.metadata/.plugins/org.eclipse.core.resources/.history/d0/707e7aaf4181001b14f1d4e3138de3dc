@@ -1,0 +1,18 @@
+package com.example.demo.sec.config;
+
+import java.util.Arrays;
+
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+public class CorsConfig implements WebMvcConfigurer {
+    public void addCorsMappings(CorsRegistry registry) {
+    	  CorsConfiguration conf = new CorsConfiguration();
+          conf.setAllowedOrigins(Arrays.asList("*"));
+          conf.setAllowedMethods(Arrays.asList("POST", "GET", "OPTIONS", "DELETE", "PUT"));
+          conf.setAllowedHeaders(Arrays.asList("Content-Type", "X-Requested-With", "accept,Origin", "Access-Control-Request-Method", "Access-Control-Request-Headers", "Authorization", "Cache-Control", "Access-Control-Allow-Origin"));
+          conf.setAllowCredentials(true);
+          conf.setMaxAge(3600L);
+    }
+}

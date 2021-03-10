@@ -1,0 +1,32 @@
+package com.example.demo.sec.util;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Controller;
+
+
+import lombok.Builder; 
+
+import lombok.Getter;
+
+interface AuthToken {
+    String getToken();
+}
+
+@Builder
+@Getter
+public class CustomAuthToken implements AuthToken {
+	private final Logger logger = LoggerFactory.getLogger(this.getClass());
+	@Value("${auth.jwtsecret}")
+	private String jwtsecret;
+	@Value("${auth.jwtExpirationMs}")
+	private int jwtExpirationMs;
+	
+	@Override
+	public String getToken() {
+		// TODO Auto-generated method stub
+		return null;
+	} 
+    
+}

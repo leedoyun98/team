@@ -1,0 +1,113 @@
+package com.example.demo.usr.domain;
+
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
+import java.util.stream.Collectors;
+
+import org.springframework.context.annotation.Lazy;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.stereotype.Component;
+
+import lombok.Data;
+import lombok.Getter;
+
+@Component @Getter @Lazy
+public class UserDto implements UserDetails{
+	private static final long serialVersionUID = 1L;
+
+	private long usrNo;
+
+	private String usrName;
+
+	private String usrEmail;
+
+	private String usrPwd;
+
+	private String usrAges;
+
+	private String usrCity;
+
+	private String usrGender;
+
+	private String usrPhone;
+
+	private String usrAddr;
+	
+	private String usrNickname;
+	
+	private Collection<? extends GrantedAuthority> authorities;
+	
+	public UserDto(String usrName, String usrEmail, String usrPwd, String usrPhone, String usrNickname,
+			Collection<? extends GrantedAuthority> authorities) {
+		super();
+		this.usrName = usrName;
+		this.usrEmail = usrEmail;
+		this.usrPwd = usrPwd;
+		this.usrPhone = usrPhone;
+		this.usrNickname = usrNickname;
+		this.authorities = authorities;
+	}
+
+	
+	public static UserDto create(User user) {
+		List<GrantedAuthority> authorities = 
+				user.getRoles().stream().map(role -> new SimpleGrantedAuthority(role.getRoleName().name()))
+				.collect(Collectors.toList());
+		return new UserDto(user.getUsrEmail(), user.getUsrName(), user.getUsrPwd(), user.getUsrPhone(),user.getUsrNickname(), authorities);
+	}
+	
+	
+
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getPassword() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getUsername() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean isAccountNonExpired() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean isAccountNonLocked() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean isCredentialsNonExpired() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean isEnabled() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+
+
+
+
+
+	
+	
+}

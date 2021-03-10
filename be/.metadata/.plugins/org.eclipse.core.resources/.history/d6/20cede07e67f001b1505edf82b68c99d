@@ -1,0 +1,38 @@
+package com.example.demo.usr.repository;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+
+import com.example.demo.brd.domain.Board;
+import com.example.demo.usr.domain.User;
+import com.google.common.base.Optional;
+
+interface IUserRepository{
+	public List<User> findByTitle(User user);
+}
+
+public interface UserRepository extends JpaRepository<User, Long>,
+									IUserRepository{
+	
+	@Query("update User set usr_pwd = :usrPwd,"
+			+ " usr_phone = :usrPhone"
+			+ " where usr_no = :usrNo")
+	public int update(@Param("usrPwd") String usrPwd, 
+						@Param("usrPhone") String usrPhone, 
+						@Param("usrNo") int usrNo);
+	public List<User> findByUsrEmailAndUsrName(String usrName, String usrEmail);
+	
+	 public Optional<User> findByEmail(String usrEmail);
+	  public Optional<User> findByUseridOrEmail(String userid, String email);
+	  public List<User> findByUserNumIn(List<Long> userNums);
+	  public Optional<User> findByUserid(String userid);
+	  public Boolean existsByUserid(String userid);
+	  public Boolean existsByEmail(String email);
+
+}
+
+
+

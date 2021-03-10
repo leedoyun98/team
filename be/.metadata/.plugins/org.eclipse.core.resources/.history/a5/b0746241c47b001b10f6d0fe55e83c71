@@ -1,0 +1,20 @@
+package com.example.demo.cmm.service;
+
+import java.util.List;
+import java.util.Optional;
+
+import com.example.demo.brd.domain.Board;
+import com.example.demo.brd.repository.BoardRepository;
+
+
+public abstract class AbstractService<T> {
+	public abstract T save(T t) ;
+	public abstract void delete(T t);
+	public abstract int count();
+	public abstract boolean existsById(int id);
+	public abstract List<Board> findAll();
+	public abstract Board getOne(int id);
+	public abstract Optional<Board> findById(int id);
+
+}
+

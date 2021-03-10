@@ -1,0 +1,12 @@
+package com.example.demo.sec.util;
+
+import lombok.Builder; 
+import lombok.Getter;
+
+
+ 
+@Builder
+@Getter
+public class AuthToken implements AuthToken {
+    private String token;
+}

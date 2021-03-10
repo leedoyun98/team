@@ -1,0 +1,49 @@
+package com.example.demo.rpl.controller;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.http.ResponseEntity;
+
+import com.example.demo.cmm.controller.AbstractController;
+import com.example.demo.rpl.domain.Reply;
+import com.example.demo.rpl.service.ReplyService;
+
+public class ReplyController extends AbstractController<Reply>{
+	private final ReplyServiceImpl service;
+	@Override
+	public ResponseEntity<Integer> save(Reply t) {
+		return ResponseEntity.ok(save.);
+	}
+
+	@Override
+	public ResponseEntity<Integer> delete(Reply t) {
+		return null;
+	}
+
+	@Override
+	public ResponseEntity<Integer> count() {
+		return null;
+	}
+
+	@Override
+	public ResponseEntity<Reply> getOne(int id) {
+		return null;
+	}
+
+	@Override
+	public ResponseEntity<Optional<Reply>> findById(int id) {
+		return null;
+	}
+
+	@Override
+	public ResponseEntity<Boolean> existsById(int id) {
+		return null;
+	}
+
+	@Override
+	public ResponseEntity<List<Reply>> findAll() {
+		return null;
+	}
+
+}

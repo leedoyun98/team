@@ -1,0 +1,24 @@
+package com.example.demo.sec.util;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Controller;
+
+
+import lombok.Builder; 
+
+import lombok.Getter;
+
+interface AuthToken {
+    String getToken();
+}
+
+@Builder
+@Getter
+public class CustomAuthToken implements AuthToken {
+	private static final Logger logger = LoggerFactory.getLogger(this.getClass());
+	private String token;
+	    private static final String SECRET_KEY = "SOME_SECRET_KEY";
+	    private static final long EXPIRATION_MS = 1000 * 60 * 60 * 24; 
+    
+}

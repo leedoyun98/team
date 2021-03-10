@@ -1,0 +1,17 @@
+package com.example.demo.sec.config;
+
+
+
+import com.example.demo.sec.util.AuthEntryPoint;
+
+public class SecurityConfig {
+	 private static final String[] PUBLIC_URI = {
+	            "/api"
+	    };
+//	@Override
+//	protected void configure(HttpSecurity http) throws Exception {
+//		http.csrf().disable().httpBasic().disable().formLogin().disable().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
+//		.authorizeRequests().antMatchers(PUBLIC_URI).permitAll()
+//		.anyRequest().authenticated().and().exceptionHandling().authenticationEntryPoint(new AuthEntryPoint());
+//	}
+}

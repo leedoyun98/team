@@ -1,0 +1,9 @@
+public interface AuthenticationToken {
+    String getToken();
+}
+ 
+@Builder
+@Getter
+public class AuthToken implements AuthenticationToken {
+    private String token;
+}

@@ -1,0 +1,31 @@
+package com.example.demo.prd.service;
+
+import java.util.List; 
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired; 
+import org.springframework.stereotype.Service;
+
+import com.example.demo.cmm.service.AbstractService;
+import com.example.demo.prd.domain.Product;
+import com.example.demo.prd.repository.ProductRepositoy;
+import com.example.demo.prd.repository.ProductRepositoyImpl;
+
+import lombok.RequiredArgsConstructor;
+
+
+
+@Service 
+@RequiredArgsConstructor
+public class ProductServiceImpl extends AbstractService<Product>{
+	private final ProductRepositoyImpl repositoy;
+	
+	@Override public Product save(Product p) { return repositoy.save(p);}
+	@Override public void delete(Product p) { repositoy.delete(p);}
+	@Override public int count() {return (int) repositoy.count();}
+	@Override public Product getOne(int id) {return repositoy.getOne(id);}
+	@Override public Optional<Product> findById(int id) {return repositoy.findById(id);}
+	@Override public boolean existsById(int id) {return repositoy.existsById(id);}
+	@Override public List<Product> findAll() {return repositoy.findAll();}
+	
+}

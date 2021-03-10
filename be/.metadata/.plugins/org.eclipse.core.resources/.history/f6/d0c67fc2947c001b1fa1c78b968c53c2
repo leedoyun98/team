@@ -1,0 +1,28 @@
+@Entity @Getter
+public class Payment {
+   @Id @GeneratedValue(strategy = GenerationType.AUTO) @Column(name="pay_no") private int payNo;
+   @Column(name="ord_no") private String ordNo;
+   @Column(name="pay_price") private String payPrice;
+   @Column(name="pay_amount") private int payAmount;
+   @Column(name="dvr_fee") private String dvrFee;
+   @Column(name="pay_date") private String payDate;
+   @Column(name="pay_state") private String payState;
+   
+   @ManyToOne
+   @JoinColumn(name="usr_no")
+   private User user;
+   
+   @ManyToOne
+   @JoinColumn(name="prd_no")
+   private Product product;
+   
+   @OneToMany(mappedBy="payment")
+   private List<Receiver> receiverList = new ArrayList<>();
+   
+   @OneToMany(mappedBy="payment")
+   private List<Board> boardList = new ArrayList<>();
+   
+   @OneToOne(mappedBy="payment")
+   private Cart cart;
+   
+}

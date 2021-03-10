@@ -1,0 +1,32 @@
+package com.example.demo.brd.service;
+
+
+import java.util.List;
+import java.util.Optional;
+import org.springframework.stereotype.Service;
+import com.example.demo.brd.domain.Board;
+import com.example.demo.brd.repository.BoardRepository;
+import com.example.demo.cmm.service.AbstractService;
+import lombok.RequiredArgsConstructor;
+
+@Service @RequiredArgsConstructor
+public class BoardServiceImpl extends AbstractService<Board> {
+	private final BoardRepository repository;
+	
+	@Override public int save(Board t) {return (repository.save(t)!=null) ? 1:0;}
+	@Override public int count() {return (int)repository.count();}
+	@Override public Board getOne(int id) {return repository.getOne(id);}
+	@Override public Optional<Board> findById(int id){return repository.findById(id);}
+	@Override public boolean existsById(int id) {return repository.existsById(id);}
+	@Override public List<Board> findAll() {return repository.findAll();}
+	@Override public int delete(Board t) {
+		repository.delete(t); 
+		return (getOne(t.getBrdNo())==null)? 1:0;
+		}
+//	public Board selectById(String title) {
+//		// TODO Auto-generated method stub
+//		return repository.selectById(title);
+//	}
+
+	
+}

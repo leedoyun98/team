@@ -1,0 +1,25 @@
+package com.example.demo.prd.repository;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
+
+import com.example.demo.brd.domain.Board;
+import com.example.demo.prd.domain.Product;
+
+interface IProductRepositoy{
+	
+}
+
+
+public interface ProductRepositoy extends JpaRepository<Product, Integer>,IProductRepositoy{
+	@Query("update products set prd_name = :#{prd.prdName}, "
+			+ " prd_img = :#{#prd.prdImg}, "
+			+ " prd_price = :#{#prd.prdPrice} "
+			+ "where prd_no = :#{#prd.prdNo} ")
+	public int update(@Param("prd") Product t);
+
+}

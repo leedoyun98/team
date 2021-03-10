@@ -1,0 +1,14 @@
+package com.example.demo.sec.util;
+
+import lombok.Builder;
+import lombok.Getter;
+
+public interface JwtAuthToken {
+    String getToken();
+}
+ 
+@Builder
+@Getter
+public class JwtAuthToken implements JwtAuthToken {
+    private String token;
+}

@@ -1,0 +1,19 @@
+package com.example.demo.usr.repositoy;
+
+import org.springframework.data.jpa.repository.support.QuerydslRepositorySupport;
+
+import com.example.demo.prd.domain.Product;
+import com.querydsl.jpa.impl.JPAQueryFactory;
+
+interface IUserRepositoy {
+	
+}
+
+public class UserRepositoyImpl extends QuerydslRepositorySupport implements IUserRepositoy{
+	private final JPAQueryFactory qf;
+	public UserRepositoyImpl(JPAQueryFactory qf) {
+		super(Product.class);
+		this.qf;
+	}
+
+}

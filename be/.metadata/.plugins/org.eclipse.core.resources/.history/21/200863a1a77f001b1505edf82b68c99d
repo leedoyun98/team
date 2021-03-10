@@ -1,0 +1,29 @@
+package com.example.demo.usr.repository;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.support.QuerydslRepositorySupport;
+import org.springframework.stereotype.Repository;
+
+import com.example.demo.usr.domain.User;
+import com.querydsl.jpa.impl.JPAQueryFactory;
+
+@Repository
+public class UserRepositoryImpl extends QuerydslRepositorySupport 
+									implements IUserRepository{
+	// private final JPAQueryFactory qf;
+	public UserRepositoryImpl() {
+		super(User.class);
+		// this.qf = qf;
+	}
+
+	@Override
+	public List<User> findByTitle(User user) {
+	    return em.createQuery("select login_num loginNum, userid, password from login  where userid like :userid and password like :password")
+			.setParameter("writeDate", writeDate)
+			.getResultList();
+		@SuppressWarnings("unchecked")
+
+	}
+
+}
