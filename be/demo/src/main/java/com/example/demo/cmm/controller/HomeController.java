@@ -31,12 +31,6 @@ public class HomeController {
 	public String home(HttpSession session, HttpServletRequest request) {
 		logger.info("ctx");
 		String ctx = request.getContextPath();
-		session.setAttribute("ctx", ctx);
-		session.setAttribute("mem", ctx+"/resources/mem");
-		session.setAttribute("cmm", ctx+"/resources/cmm");
-		session.setAttribute("prdt", ctx + "/resources/prd");
-    	session.setAttribute("board", ctx+"/resources/brd");
-    	session.setAttribute("adm", ctx+"/resources/adm");
 		return "index";
 	}
 		

@@ -21,9 +21,11 @@ import javax.persistence.Table;
 import com.example.demo.lvl.domain.Level;
 import com.example.demo.pay.domain.Payment;
 
+import lombok.Builder;
 import lombok.Getter;
+import lombok.ToString;
 
-@Entity @Getter
+@Entity @Getter @ToString
 public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -67,6 +69,10 @@ public class User {
 //	@JoinTable(name = "usr_roles", joinColumns = @JoinColumn(name = "usr_no"),
 //		inverseJoinColumns = @JoinColumn(name = "role_no"))
 //	private Set<Role> roles = new HashSet<>();
-//	
+	
+
+
+	
+	
 }
 	

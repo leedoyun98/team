@@ -1,3 +1,0 @@
-
-  jwtExpirationMs = 600000
-  jwtsecret = JWTSuperSecretKey

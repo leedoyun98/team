@@ -2,13 +2,17 @@ package com.example.demo.brd.domain;
 
 
 import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 
 import lombok.Data;
 
-@Data @Component @Lazy
+@Data @Component @Lazy 
 public class BoardDto {
 	 private long brdNo;
 	 private String  brdTitle;
@@ -21,4 +25,6 @@ public class BoardDto {
 	 private String brdLike;
 	 private String brdPwd;
 	 private String brdNikcname;
+	 
+		
 }

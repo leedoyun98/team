@@ -1,6 +1,8 @@
 package com.example.demo.usr.controller;
 
-import java.util.List; 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import org.slf4j.Logger;
@@ -16,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.cmm.controller.AbstractController;
 import com.example.demo.usr.domain.User;
+import com.example.demo.usr.domain.UserDto;
 import com.example.demo.usr.service.UserServiceImpl;
 import lombok.RequiredArgsConstructor;
 
@@ -24,13 +27,12 @@ import lombok.RequiredArgsConstructor;
 @RestController
 @RequiredArgsConstructor
 @CrossOrigin(origins = "*", allowedHeaders = "*")
-@RequestMapping("/user")
+@RequestMapping("/usr")
 public class UserController extends AbstractController<User> {
 	final UserServiceImpl service;
 	
 	@PostMapping("/save")
 	public ResponseEntity<Long> save(@RequestBody User t) {
-		System.out.println( "회원가입");
 		return ResponseEntity.ok(service.save(t));
 	}
 	
@@ -62,6 +64,12 @@ public class UserController extends AbstractController<User> {
 	@GetMapping("/all")
 	public ResponseEntity<List<User>> findAll() {
 		return ResponseEntity.ok(service.findAll());
+	}
+	
+	@PostMapping("/login")
+	public User login(User user){
+		System.out.println( "로그인");
+		return service.login(user);
 	}
 	
 }

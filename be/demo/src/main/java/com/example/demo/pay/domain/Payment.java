@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -29,11 +30,11 @@ public class Payment {
 	   @Column(name="dvr_fee") private String dvrFee;
 	   @Column(name="pay_date") private String payDate;
 	   @Column(name="pay_state") private String payState;
-   @ManyToOne
+   @ManyToOne(fetch=FetchType.LAZY)
    @JoinColumn(name="usr_no")
    private User user;
    
-   @ManyToOne
+   @ManyToOne(fetch=FetchType.LAZY)
    @JoinColumn(name="prd_no")
    private Product product;
    

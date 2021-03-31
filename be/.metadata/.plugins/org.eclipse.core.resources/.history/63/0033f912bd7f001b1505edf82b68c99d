@@ -1,2 +1,0 @@
-auth.jwtsecret = JWTSuperSecretKey
-auth.jwtExpirationMs = 600000

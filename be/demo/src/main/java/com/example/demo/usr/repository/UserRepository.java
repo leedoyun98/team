@@ -8,10 +8,13 @@ import org.springframework.data.repository.query.Param;
 
 import com.example.demo.brd.domain.Board;
 import com.example.demo.usr.domain.User;
+import com.example.demo.usr.domain.UserDto;
+
 import java.util.Optional;
 
 interface IUserRepository{
 	public List<User> findByTitle(User user);
+	public User login(User user);
 }
 
 public interface UserRepository extends JpaRepository<User, Long>,
@@ -23,10 +26,10 @@ public interface UserRepository extends JpaRepository<User, Long>,
 	public int update(@Param("usrPwd") String usrPwd, 
 						@Param("usrPhone") String usrPhone, 
 						@Param("usrNo") int usrNo);
+
 	
-//	  public Optional<User> findByEmail(String usrEmail);
-//	  public List<User> findByUserNumIn(List<Long> usrNo);
-//	  public Boolean existsByEmail(String usrEmail);
+	
+
 
 }
 

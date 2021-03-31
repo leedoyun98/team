@@ -3,14 +3,14 @@ import React, { Fragment } from "react";
 import HeaderOne from "../wrappers/header/HeaderOne";
 import FooterOne from "../wrappers/footer/FooterOne";
 
-const LayoutOne = ({
+export const LayoutOne = ({
   children,
   headerContainerClass,
   headerTop,
   headerPaddingClass,
   headerPositionClass
 }) => {
-  return (
+   return (
     <Fragment>
       <HeaderOne
         layout={headerContainerClass}
@@ -25,6 +25,7 @@ const LayoutOne = ({
         spaceBottomClass="pb-70"
       />
     </Fragment>
+   
   );
 };
 

@@ -1,9 +1,20 @@
 import PropTypes from "prop-types";
-import React from "react";
 import Tab from "react-bootstrap/Tab";
 import Nav from "react-bootstrap/Nav";
-
+import React, { useState, Fragment,useEffect } from 'react'
 const ProductDescriptionTab = ({ spaceBottomClass, productFullDesc }) => {
+  const [clicked, setClicked] = useState([false, false, false, false, false]);
+  
+  const handleStarClick = (e, index) => {
+    e.preventDefault();
+    let clickStates = [...clicked];
+    for (let i = 0; i < 5; i++) {
+      if (i <= index) clickStates[i] = true;
+      else clickStates[i] = false;
+    }
+
+    setClicked(clickStates);
+  };
   return (
     <div className={`description-review-area ${spaceBottomClass}`}>
       <div className="container">
@@ -134,6 +145,7 @@ const ProductDescriptionTab = ({ spaceBottomClass, productFullDesc }) => {
                         <form action="#">
                           <div className="star-box">
                             <span>Your rating:</span>
+                            
                             <div className="ratting-star">
                               <i className="fa fa-star" />
                               <i className="fa fa-star" />

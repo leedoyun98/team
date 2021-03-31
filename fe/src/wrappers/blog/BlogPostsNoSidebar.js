@@ -1,12 +1,17 @@
 import React, { Fragment } from "react";
-import { Link } from "react-router-dom";
-const BlogPostsNoSidebar = () => {
+import { Link, Route, Router } from "react-router-dom";
+import {makeStyles} from '@material-ui/styles'
+const useStyles = makeStyles (()=>({
+        image: {height:40, width:40}
+}))
+const BlogPostsNoSidebar = ({ history }) => {
+
   return (
     <Fragment>
       <div className="col-lg-4 col-md-6 col-sm-12">
         <div className="blog-wrap-2 mb-30">
           <div className="blog-img-2">
-            <Link to={process.env.PUBLIC_URL + "/blog-details-standard"}>
+            <Link to= "/blog-details-standard">
               <img
                 src={process.env.PUBLIC_URL + "/assets/img/blog/blog-9.jpg"}
                 alt=""
@@ -348,6 +353,7 @@ const BlogPostsNoSidebar = () => {
                 <Link to={process.env.PUBLIC_URL + "/blog-details-standard"}>
                   read more
                 </Link>
+                
               </div>
               <div className="blog-share">
                 <span>share :</span>
@@ -366,6 +372,7 @@ const BlogPostsNoSidebar = () => {
                     <li>
                       <a className="instagram" href="//instagram.com">
                         <i className="fa fa-instagram" />
+                        
                       </a>
                     </li>
                   </ul>
@@ -374,6 +381,7 @@ const BlogPostsNoSidebar = () => {
             </div>
           </div>
         </div>
+        <a  type="submit" defaultValue="Submit" href="#"><Link to= '/blog-detail'>글 작성하기</Link></a>
       </div>
     </Fragment>
   );

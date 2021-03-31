@@ -6,6 +6,7 @@ import com.example.demo.brd.domain.Board;
 import com.example.demo.brd.domain.BoardDto;
 
 public interface BoardService {
-	public List<Board> findByTitle(String title);
+	public Board findByTitle(String brdTitle);
+
 
 }

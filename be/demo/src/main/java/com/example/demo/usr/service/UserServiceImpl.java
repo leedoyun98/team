@@ -3,9 +3,11 @@ package com.example.demo.usr.service;
 import java.util.List; 
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.usr.domain.User;
+import com.example.demo.usr.domain.UserDto;
 import com.example.demo.usr.repository.UserRepository;
 import com.example.demo.cmm.service.AbstractService;
 
@@ -15,7 +17,6 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class UserServiceImpl extends AbstractService<User> implements UserService{
 	private final UserRepository repo;
-
 	@Override public long save(User t) {return (repo.save(t)!=null) ? 1 : 0 ;}
 	@Override public long count() {return (long) repo.count();}
 	@Override public User getOne(long id) {return repo.getOne(id);}
@@ -25,6 +26,10 @@ public class UserServiceImpl extends AbstractService<User> implements UserServic
 	@Override public long delete(User t) {
 		repo.delete(t); 
 		return (getOne(t.getUsrNo())==null) ? 1 : 0;
+	}
+	public User login(User user) {
+
+		return repo.login(user);
 	}
 
 }
